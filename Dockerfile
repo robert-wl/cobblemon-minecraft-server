@@ -2,5 +2,8 @@ FROM openjdk:21-slim
 
 WORKDIR /minecraft
 
-RUN apt-get update && apt-get install -y libfreetype6 curl wget
+COPY . .
 
+ENTRYPOINT ["java", "-Xmx2G", "-jar", "fabric-server-launch.jar", "nogui"]
+
+EXPOSE 25565
